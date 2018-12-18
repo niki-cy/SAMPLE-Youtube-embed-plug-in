@@ -15,7 +15,11 @@
             var VIDEO_HEIGHT = config.insert_height;
 
             var fullUrl = resp.record[VIDEO_LINK].value;
-            var videoId = fullUrl.slice(32);
+            if (fullUrl.slice(0,32) === 'https://www.youtube.com/watch?v=') {
+                var videoId = fullUrl.slice(32);
+            } else if (fullUrl.slice(0,17) === 'https://youtu.be/') {
+                var videoId = fullUrl.slice(17);
+            };
 
             var ytiframe = document.createElement('iframe');
             ytiframe.setAttribute('width', VIDEO_WIDTH);
