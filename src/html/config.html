@@ -1,20 +1,42 @@
 <section class="settings">
   <h2 class="settings-heading">Settings for Youtube Embed Plug-in</h2>
-  <p class="kintoneplugin-desc">This plug-in embeds a Youtube video specified by its link into the record details.</p>
+  <p class="kintoneplugin-desc">This plug-in embeds a Youtube video specified by its link into a Blank Space field in the record details.</p>
     <!-- Link field settings -->
     <div class="block">  
       <p class="kintoneplugin-row">
         <label class="kintoneplugin-label">
-          Youtube Link Field:
+          Youtube Link Field: 
+          <span class="kintoneplugin-require">*</span>
         </label>
       </p>
       <p class="kintoneplugin-row">
-          Select a link field.
+          Select the field that holds the link to the Youtube video. Can be a Link field (URL) or Text field.
       </p>
       <p>
         <div class="kintoneplugin-select-outer">
           <div class="kintoneplugin-select">
             <select id="select_link_field" name="select_link_field">
+              <option>-----</option>
+            </select>
+          </div>
+        </div>
+      </p>
+    </div>
+    <!-- Blank space field settings -->
+    <div class="block">  
+      <p class="kintoneplugin-row">
+        <label class="kintoneplugin-label">
+          Blank Space Field: 
+          <span class="kintoneplugin-require">*</span>
+        </label>
+      </p>
+      <p class="kintoneplugin-row">
+          Select a Blank Space field to place the embedded video.
+      </p>
+      <p>
+        <div class="kintoneplugin-select-outer">
+          <div class="kintoneplugin-select">
+            <select id="select_space_field" name="select_space_field">
               <option>-----</option>
             </select>
           </div>
