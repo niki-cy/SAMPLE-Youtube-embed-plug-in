@@ -24,13 +24,14 @@
       "css/config.css"
     ],
     "required_params": [
-      "select_link_field"
+      "select_link_field",
+      "select_space_field"
     ]
   },
   "name": {
     "en": "Youtube Embed Plug-in"
   },
   "description": {
-    "en": "This plug-in embeds a Youtube video specified by its link into the record details."
+    "en": "This plug-in embeds a Youtube video specified by its link into a Blank Space field in the record details."
   }
 }
