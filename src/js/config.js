@@ -112,11 +112,23 @@ jQuery.noConflict();
   // Set input values when save button is clicked
   $('#settings-save').click(function(e) {
     var configSettings = {select_link_field: $link.val(), select_space_field: $space.val(), insert_width: $width.val(), insert_height: $height.val()};
+    var widthNum = Number($width.val());
+    var heightNum = Number($height.val());
+    var maxDimension = 99999;
     e.preventDefault();
-    kintone.plugin.app.setConfig(configSettings, function() {
-      // Redirect to App Settings
-      alert('Plug-in settings have been saved. Please update the app!');
-      window.location.href = getSettingsUrl();
-    });
+
+    if ($link.val() === 'not selected' || $space.val() === 'not selected') {
+      // Check required fields are all filled
+      alert('Please fill in all required fields.');
+    } else if (!Number.isInteger(widthNum) || !Number.isInteger(heightNum) || widthNum > maxDimension || heightNum > maxDimension) {
+      // Check that width and height are full numbers less than 5000
+      alert('Please enter width and height as full numbers less than 99999px');
+    } else {
+      kintone.plugin.app.setConfig(configSettings, function() {
+        // Redirect to App Settings
+        alert('Plug-in settings have been saved. Please update the app!');
+        window.location.href = getSettingsUrl();
+      });
+    }
   });
 })(jQuery, kintone.$PLUGIN_ID);
