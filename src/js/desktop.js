@@ -12,8 +12,8 @@
     var fullUrl = event.record[VIDEO_LINK].value;
     var urlExampleFull = 'https://www.youtube.com/watch?v=OOOOOOOOOOO';
     var urlExampleShort = 'https://youtu.be/OOOOOOOOOOO';
-    var noVideoErrorFirstHalf = 'The Youtube URL could not be read.\n Insert the URL either as ';
-    var noVideoErrorSecondHalf = '. If the format is correct, check that the correct URL field has been selected in the settings.';
+    var noVideoErrorFirstHalf = 'The Youtube URL could not be read.<br>Insert the URL either as <b>';
+    var noVideoErrorSecondHalf = '</b>. If the format is correct, check that the correct URL field has been selected in the settings.';
     var createYTiframe = function() {
       // Create iFrame HTML element
       ytiframe.setAttribute('width', VIDEO_WIDTH);
@@ -27,7 +27,7 @@
     var createNoVideoError = function() {
       // Create no video error message
       var noVideoError = document.createElement('div');
-      noVideoError.innerHTML = noVideoErrorFirstHalf + urlExampleFull + '\nor ' + urlExampleShort + noVideoErrorSecondHalf;
+      noVideoError.innerHTML = noVideoErrorFirstHalf + urlExampleFull + '</b><br>or <b>' + urlExampleShort + noVideoErrorSecondHalf;
       kintone.app.record.getSpaceElement(VIDEO_BLANK_SPACE).appendChild(noVideoError);
     };
 
