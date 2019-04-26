@@ -12,7 +12,7 @@ jQuery.noConflict();
   var $ratio = $('#ratio_checkbox'); // Checkbox with ID 'ratio_checkbox'
   var appId = kintone.app.getId(); // Variable with the App ID
   var checkbox_boolean; // Last saved value of checkbox changed back from string to boolean
-  var checkbox_value; // Last saved value of the checkbox (string-version boolean)
+  var checkbox_value = 'true'; // Last saved value of the checkbox (string-version boolean)
   var newWidth; // Ratio-correct width when height is changed and aspect ratio lock enabled
   var newHeight; // Ratio-correct height when width is changed and aspect ratio lock enabled
 
@@ -26,12 +26,12 @@ jQuery.noConflict();
     KintoneConfigHelper.getFields(['SINGLE_LINE_TEXT', 'LINK']).then(function(resp) {
       var $optionLink;
 
-      for (var i = 0; i < resp.length; i++) {
+      resp.forEach(function(respField) {
         $optionLink = $('<option>');
-        $optionLink.attr('value', resp[i].code);
-        $optionLink.text(resp[i].label);
+        $optionLink.attr('value', respField.code);
+        $optionLink.text(respField.label);
         $link.append($optionLink);
-      }
+      });
 
       if (config.select_link_field) {
         $link.val(config.select_link_field);
@@ -48,13 +48,13 @@ jQuery.noConflict();
       var $optionSpace;
       var spaceId;
 
-      for (var i = 0; i < resp.length; i++) {
-        spaceId = resp[i].elementId;
+      resp.forEach(function(respSpace) {
+        spaceId = respSpace.elementId;
         $optionSpace = $('<option>');
         $optionSpace.attr('value', spaceId);
         $optionSpace.text(spaceId);
         $space.append($optionSpace);
-      }
+      });
 
       if (config.select_space_field) {
         $space.val(config.select_space_field);
@@ -139,7 +139,7 @@ jQuery.noConflict();
     } else {
       kintone.plugin.app.setConfig(configSettings, function() {
         // Redirect to App Settings
-        alert('Plug-in settings have been saved. Please update the app!');
+        alert('The plug-in settings have been saved. Please update the app!');
         window.location.href = getSettingsUrl();
       });
     }
