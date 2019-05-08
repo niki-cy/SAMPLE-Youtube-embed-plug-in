@@ -107,6 +107,12 @@ jQuery.noConflict();
     }
   });
 
+  // Reset default dimensions when reset button is clicked
+  $('#reset_dimensions').click(function() {
+    $width.val(560);
+    $height.val(315);
+  });
+
   // Run setting functions
   setLinkDropdown();
   setSpaceDropdown();
