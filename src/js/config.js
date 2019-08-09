@@ -53,7 +53,7 @@ jQuery.noConflict();
       if (CONF.space) {
         $spaceDropDown.val(CONF.space);
       }
-    }, function(resp) {
+    }, function() {
       // Error
       return alert('There was an error retrieving the Link field information.');
     });
