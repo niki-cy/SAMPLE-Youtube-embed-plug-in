@@ -3,10 +3,7 @@
   // Record details event
   kintone.events.on('app.record.detail.show', function(event) {
     var CONFIG = kintone.plugin.app.getConfig(PLUGIN_ID); // Get plug-in setting configuration
-    var VIDEO_LINK;
-    var VIDEO_WIDTH;
-    var VIDEO_HEIGHT;
-    var VIDEO_BLANK_SPACE;
+    var VIDEO_LINK, VIDEO_WIDTH, VIDEO_HEIGHT, VIDEO_BLANK_SPACE;
     var videoId = '';
     var fullUrl;
     var ytiframe = document.createElement('iframe');
